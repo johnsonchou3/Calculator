@@ -42,7 +42,8 @@ namespace Calculator
         }
 
         /// <summary>
-        /// 把txtbox及operator打包至label1
+        /// 把txtbox及operator打包至label1, 
+        /// CorrectOperator: 當連續按operation 按鍵時會更改operator
         /// </summary>
         private void AssignVal1()
         {
@@ -65,6 +66,9 @@ namespace Calculator
             form1.TextBoxStr = "0";
         }
 
+        /// <summary>
+        /// 當連續按operation 按鍵時會更改operator
+        /// </summary>
         private void CorrectOperator()
         {
             string labelstr = form1.LabelStr;

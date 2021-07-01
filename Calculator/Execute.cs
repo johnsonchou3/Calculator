@@ -42,14 +42,32 @@ namespace Calculator
         /// 按鍵功能
         /// SplitLabel: 把label的val1及operator分開並存入attribute 
         /// AssignVal2: 把txtboxstr 的val2 存入attribute
+        /// ArgumentOutOfRangeException: 前面沒先指派val + op 在label 時會出現
+        /// ArgumentNullException: txtbox 沒打字會出現
+        /// DivideByZeroException: 除以零時會出現
         /// 把val2 放到label並把結果顯示在txtbox 
         /// </summary>
         public override void BtnFunction()
         {
-            SplitLabel();
-            AssignVal2();
-            form1.TextBoxStr = GetStrNum();
-            form1.LabelStr += val2;
+            try
+            {
+                SplitLabel();
+                AssignVal2();
+                form1.TextBoxStr = GetStrNum();
+                form1.LabelStr += val2;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                form1.TextBoxStr = form1.TextBoxStr;
+            }
+            catch (ArgumentNullException)
+            {
+                form1.TextBoxStr = form1.TextBoxStr;
+            }
+            catch (DivideByZeroException)
+            {
+                form1.PopDivZero();
+            }
         }
 
         /// <summary>
@@ -57,9 +75,9 @@ namespace Calculator
         /// </summary>
         private void SplitLabel()
         {
-            string labelstr = this.form1.LabelStr;
-            curop = labelstr.Substring(labelstr.Length - 1);
-             val1 = decimal.Parse(labelstr.Remove(labelstr.Length - 1));
+                string labelstr = this.form1.LabelStr;
+                curop = labelstr.Substring(labelstr.Length - 1);
+                val1 = decimal.Parse(labelstr.Remove(labelstr.Length - 1));
         }
 
         /// <summary>

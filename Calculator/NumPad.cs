@@ -46,7 +46,7 @@ namespace Calculator
         {
             decimal txtboxdec = decimal.Parse(form1.TextBoxStr);
             decimal inputdec = decimal.Parse(btnnum);
-            string newtxtboxstr = (txtboxdec * 10 + inputdec).ToString();
+            string newtxtboxstr = ((txtboxdec * 10) + inputdec).ToString();
             form1.TextBoxStr = newtxtboxstr;
         }
     }

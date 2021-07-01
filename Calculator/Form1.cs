@@ -75,5 +75,13 @@ namespace Calculator
             get { return CurOp.Text; }
             set { CurOp.Text = value; }
         }
+
+        /// <summary>
+        /// 如果除以0時 跳出錯誤
+        /// </summary>
+        public void PopDivZero()
+        {
+            MessageBox.Show("You can't divide by zero!", "Div Zero Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }

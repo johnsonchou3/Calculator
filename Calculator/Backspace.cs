@@ -33,7 +33,7 @@ namespace Calculator
             {
                 RemoveLastDigit();
             }
-            catch(ArgumentOutOfRangeException)
+            catch (ArgumentOutOfRangeException)
             {
                 form1.TextBoxStr = "0";
             }
