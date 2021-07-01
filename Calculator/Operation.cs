@@ -46,8 +46,15 @@ namespace Calculator
         /// </summary>
         private void AssignVal1()
         {
-            decimal txtboxdec = decimal.Parse(form1.TextBoxStr);
-            form1.LabelStr = txtboxdec.ToString() + this.btnop;
+            try
+            {
+                decimal txtboxdec = decimal.Parse(form1.TextBoxStr);
+                form1.LabelStr = txtboxdec.ToString() + this.btnop;
+            }
+            catch (FormatException)
+            {
+                CorrectOperator();
+            }
         }
 
         /// <summary>
@@ -55,7 +62,13 @@ namespace Calculator
         /// </summary>
         private void ClearTxtBox()
         {
-            form1.TextBoxStr = string.Empty;
+            form1.TextBoxStr = "0";
+        }
+
+        private void CorrectOperator()
+        {
+            string labelstr = form1.LabelStr;
+            form1.LabelStr = labelstr.Remove(labelstr.Length - 1) + btnop;
         }
     }
 }

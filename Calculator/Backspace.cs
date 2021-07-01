@@ -29,7 +29,14 @@ namespace Calculator
         /// </summary>
         public override void BtnFunction()
         {
-            RemoveLastDigit();
+            try
+            {
+                RemoveLastDigit();
+            }
+            catch(ArgumentOutOfRangeException)
+            {
+                form1.TextBoxStr = "0";
+            }
         }
 
         /// <summary>

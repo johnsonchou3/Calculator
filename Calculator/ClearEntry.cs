@@ -37,7 +37,7 @@ namespace Calculator
         /// </summary>
         private void EmptyTxtBox()
         {
-            form1.TextBoxStr = string.Empty;
+            form1.TextBoxStr = "0";
         }
     }
 }
