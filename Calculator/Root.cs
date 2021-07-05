@@ -5,9 +5,9 @@ using System.Text;
 namespace Calculator
 {
     /// <summary>
-    /// C按鍵的類別, 繼承CE的清空method, 並再把之前的所有輸入移除
+    /// 開根號鍵的類別, 功能為把TempInputString作開根號
     /// </summary>
-    public class ClearAll : ClearEntry
+    public class Root : Btns
     {
         /// <summary>
         /// 需要form1 的TempInputString, StringOfOperation, txtbox 及label作存取
@@ -18,29 +18,29 @@ namespace Calculator
         /// Constructor
         /// </summary>
         /// <param name="form1">需要form1 的TempInputString, StringOfOperation, txtbox 及label作存取</param>
-        public ClearAll(Form1 form1) : base(form1)
+        public Root(Form1 form1)
         {
             this.form1 = form1;
         }
 
         /// <summary>
-        /// 按鍵功能
-        /// base: 繼承至CE的清空txtbox
-        /// ClearDatas: 把stringofoperation 及label清空
+        /// 按鍵動作
+        /// OperateRoot: 把TempInputString 作開根號並取代原本值
+        /// 顯示更新的TempInputString在textbox上
         /// </summary>
         public override void BtnFunction()
         {
-            base.BtnFunction();
-            ClearDatas();
+            OperateRoot();
+            form1.TextBoxStr = form1.TempInputString;
         }
 
         /// <summary>
-        /// 把stringofoperation 及label清空
+        /// 把TempInputString 作開根號並取代原本值
         /// </summary>
-        private void ClearDatas()
+        private void OperateRoot()
         {
-            form1.StringOfOperation = string.Empty;
-            form1.LabelStr = string.Empty;
+            double tempnum = double.Parse(form1.TempInputString);
+            form1.TempInputString = Math.Sqrt(tempnum).ToString();
         }
     }
 }

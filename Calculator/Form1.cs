@@ -41,7 +41,18 @@ namespace Calculator
             this.btnc.Tag = new ClearAll(this);
             this.btnback.Tag = new Backspace(this);
             this.btnPN.Tag = new PosNeg(this);
+            this.btnroot.Tag = new Root(this);
         }
+
+        /// <summary>
+        /// 全部運算式, 透過operation 及execute, C, CE 作存取
+        /// </summary>
+        public string StringOfOperation{ get; set; }
+
+        /// <summary>
+        /// 存進目前輸入的數值, 以numpad,execute 作寫入, 並會在operation 後清空
+        /// </summary>
+        public string TempInputString {get; set; } = "0";
 
         /// <summary>
         /// 按鍵的event handler, 會呼叫tag並使用其btnfunction
@@ -74,14 +85,6 @@ namespace Calculator
         {
             get { return CurOp.Text; }
             set { CurOp.Text = value; }
-        }
-
-        /// <summary>
-        /// 如果除以0時 跳出錯誤
-        /// </summary>
-        public void PopDivZero()
-        {
-            MessageBox.Show("You can't divide by zero!", "Div Zero Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
