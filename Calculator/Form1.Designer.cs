@@ -53,6 +53,7 @@
             this.btnce = new System.Windows.Forms.Button();
             this.ResultBox = new System.Windows.Forms.TextBox();
             this.CurOp = new System.Windows.Forms.Label();
+            this.btnroot = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnPN
@@ -296,11 +297,23 @@
             this.CurOp.Size = new System.Drawing.Size(0, 41);
             this.CurOp.TabIndex = 22;
             // 
+            // btnroot
+            // 
+            this.btnroot.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnroot.Location = new System.Drawing.Point(52, 256);
+            this.btnroot.Name = "btnroot";
+            this.btnroot.Size = new System.Drawing.Size(107, 71);
+            this.btnroot.TabIndex = 24;
+            this.btnroot.Text = "√";
+            this.btnroot.UseVisualStyleBackColor = true;
+            this.btnroot.Click += new System.EventHandler(this.Button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 647);
+            this.Controls.Add(this.btnroot);
             this.Controls.Add(this.CurOp);
             this.Controls.Add(this.ResultBox);
             this.Controls.Add(this.btnce);
@@ -443,5 +456,10 @@
         /// Label
         /// </summary>
         private System.Windows.Forms.Label CurOp;
+
+        /// <summary>
+        /// 開根號鍵
+        /// </summary>
+        private System.Windows.Forms.Button btnroot;
     }
 }
