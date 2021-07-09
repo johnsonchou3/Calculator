@@ -10,11 +10,6 @@ namespace Calculator
     public class Operation : Btns
     {
         /// <summary>
-        /// 需要form1 的TempInputString, StringOfOperation, txtbox 及label作存取
-        /// </summary>
-        private readonly Form1 form1;
-
-        /// <summary>
         /// 需按鍵本身的operator
         /// </summary>
         private string btnop;
@@ -22,23 +17,42 @@ namespace Calculator
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="form1">需要form1 的TempInputString, StringOfOperation, txtbox 及label作存取</param>
         /// <param name="btnop">需按鍵本身的operator</param>
-        public Operation(Form1 form1, string btnop)
+        public Operation(string btnop)
         {
-            this.form1 = form1;
             this.btnop = btnop;
         }
 
         /// <summary>
         /// 按鍵動作
-        /// SaveValue: 把TempInputString及目前的operator寫入StringOfOperation中
+        /// if (IsOperating): 如果前一個按的也是operation(isoperating), 就只會替換上一個btnop; ELSE 存入Tempinputstring及btnop 
+        /// if (!IsAfterBracket): 如果在")"後面, 只存入btnop, ELSE 存入tempinputstring + btnop
+        /// SaveValue: 把TempInputString及目前的operator寫入StringOfOperation, ExpressionList中
         /// ClearTemp: 寫入後把TempInputString清空作下一次儲存
+        /// StoretoDisplay: 把新的stringofoperation 更新至畫面
         /// </summary>
         public override void BtnFunction()
         {
-            SaveValue();
-            ClearTemp();
+            if (IsOperating)
+            {
+                StringOfOperation = StringOfOperation.Remove(StringOfOperation.Length - 1, 1) + btnop;
+            }
+            else
+            {
+                IsOperating = true;
+                if (IsAfterBracket)
+                {
+                    Expressionlist.Add(btnop);
+                    StringOfOperation += btnop;
+                    IsAfterBracket = false;
+                }
+                else
+                {
+                    SaveValue();
+                    ClearTemp();
+                }
+            }
+            StoretoDisplay();
         }
 
         /// <summary>
@@ -46,8 +60,9 @@ namespace Calculator
         /// </summary>
         private void SaveValue()
         {
-            form1.StringOfOperation += form1.TempInputString + btnop;
-            form1.LabelStr = form1.StringOfOperation;
+            StringOfOperation += double.Parse(TempInputString).ToString() + btnop;
+            Expressionlist.Add(TempInputString);
+            Expressionlist.Add(btnop);
         }
 
         /// <summary>
@@ -55,8 +70,7 @@ namespace Calculator
         /// </summary>
         private void ClearTemp()
         {
-            form1.TextBoxStr = "0";
-            form1.TempInputString = "0";
+            TempInputString = "0";
         }
     }
 }

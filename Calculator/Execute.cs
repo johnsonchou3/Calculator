@@ -11,32 +11,32 @@ namespace Calculator
     public class Execute : Btns
     {
         /// <summary>
-        /// 需要form1 的TempInputString, StringOfOperation, txtbox 及label作存取
-        /// </summary>
-        private readonly Form1 form1;
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="form1">需要form1 的TempInputString, StringOfOperation, txtbox 及label作存取</param>
-        public Execute(Form1 form1)
-        {
-            this.form1 = form1;
-        }
-
-        /// <summary>
         /// 按鍵功能
-        /// SaveValue: 把目前輸入值加進運算式中
+        /// if (!IsAfterBracket): 不在")"後的話則需把tempinputstring 存入
+        /// CreateTree: 以expressionlist 創建Tree以作Traverse
+        /// GetXxxOrder: 以Tree 作前、中、後序遍歷並把結果顯示
+        /// SaveValue: 把目前輸入值加進stringofoperation 及expressionlist中
         /// GetResult: 把運算式(string) 作運算並回傳結果(string)
-        /// Label 顯示運算式, 並把結果存進tempinputstring再清空運算式, 最後把tempinputstring (結果) 顯示在textbox
+        /// Label 顯示運算式, 並把結果存進tempinputstring再清空運算式
         /// </summary>
         public override void BtnFunction()
         {
-            SaveValue();
-            form1.LabelStr = form1.StringOfOperation + "=";
-            form1.TempInputString = GetResult();
-            form1.StringOfOperation = string.Empty;
-            form1.TextBoxStr = form1.TempInputString;
+            if (!IsAfterBracket)
+            {
+                SaveValue();
+                IsAfterBracket = false;
+            }
+            Node ExpTree = Node.CreateTree(Expressionlist);
+            Preordstring = "Pre-Order: \n";
+            Inordstring = "In-Order: \n";
+            Postordstring = "Post-Order: \n";
+            GetPreorder(ExpTree);
+            GetInorder(ExpTree);
+            GetPostorder(ExpTree);
+            TempInputString = GetResult();
+            DisplayOperation = StringOfOperation;
+            StringOfOperation = string.Empty;
+            Expressionlist.Clear();
         }
 
         /// <summary>
@@ -44,7 +44,8 @@ namespace Calculator
         /// </summary>
         private void SaveValue()
         {
-            form1.StringOfOperation += form1.TempInputString;
+            StringOfOperation += TempInputString;
+            Expressionlist.Add(TempInputString);
         }
 
         /// <summary>
@@ -54,7 +55,49 @@ namespace Calculator
         private string GetResult()
         {
             DataTable dt = new DataTable();
-            return dt.Compute(form1.StringOfOperation, "").ToString();
+            return dt.Compute(StringOfOperation, "").ToString();
+        }
+
+        /// <summary>
+        /// 以前序編歷Tree, 並把value 加到Preordstring 以顯示
+        /// </summary>
+        /// <param name="root">需要Tree的root</param>
+        private static void GetPreorder(Node root)
+        {
+            if (root != null)
+            {
+                Preordstring += root.Value + " ";
+                GetPreorder(root.Left);
+                GetPreorder(root.Right);
+            }
+        }
+
+        /// <summary>
+        /// 以中序編歷Tree, 並把value 加到Preordstring 以顯示
+        /// </summary>
+        /// <param name="root">需要Tree的root</param>
+        private static void GetInorder(Node root)
+        {
+            if (root != null)
+            {
+                GetInorder(root.Left);
+                Inordstring += root.Value + " ";
+                GetInorder(root.Right);
+            }
+        }
+
+        /// <summary>
+        /// 以後序編歷Tree, 並把value 加到Preordstring 以顯示
+        /// </summary>
+        /// <param name="root">需要Tree的root </param>
+        private static void GetPostorder(Node root)
+        {
+            if (root != null)
+            {
+                GetPostorder(root.Left);
+                GetPostorder(root.Right);
+                Postordstring += root.Value + " ";
+            }
         }
     }
 }

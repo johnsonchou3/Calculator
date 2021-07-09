@@ -54,6 +54,11 @@
             this.ResultBox = new System.Windows.Forms.TextBox();
             this.CurOp = new System.Windows.Forms.Label();
             this.btnroot = new System.Windows.Forms.Button();
+            this.btnbrack1 = new System.Windows.Forms.Button();
+            this.btnbrack2 = new System.Windows.Forms.Button();
+            this.PreOrd = new System.Windows.Forms.Label();
+            this.InOrd = new System.Windows.Forms.Label();
+            this.PostOrd = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnPN
@@ -308,11 +313,64 @@
             this.btnroot.UseVisualStyleBackColor = true;
             this.btnroot.Click += new System.EventHandler(this.Button_Click);
             // 
+            // btnbrack1
+            // 
+            this.btnbrack1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbrack1.Location = new System.Drawing.Point(52, 179);
+            this.btnbrack1.Name = "btnbrack1";
+            this.btnbrack1.Size = new System.Drawing.Size(107, 71);
+            this.btnbrack1.TabIndex = 25;
+            this.btnbrack1.Tag = "0";
+            this.btnbrack1.Text = "(";
+            this.btnbrack1.UseVisualStyleBackColor = true;
+            this.btnbrack1.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // btnbrack2
+            // 
+            this.btnbrack2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnbrack2.Location = new System.Drawing.Point(165, 179);
+            this.btnbrack2.Name = "btnbrack2";
+            this.btnbrack2.Size = new System.Drawing.Size(107, 71);
+            this.btnbrack2.TabIndex = 26;
+            this.btnbrack2.Tag = "0";
+            this.btnbrack2.Text = ")";
+            this.btnbrack2.UseVisualStyleBackColor = true;
+            this.btnbrack2.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // PreOrd
+            // 
+            this.PreOrd.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.PreOrd.Location = new System.Drawing.Point(517, 46);
+            this.PreOrd.Name = "PreOrd";
+            this.PreOrd.Size = new System.Drawing.Size(317, 167);
+            this.PreOrd.TabIndex = 27;
+            // 
+            // InOrd
+            // 
+            this.InOrd.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.InOrd.Location = new System.Drawing.Point(517, 246);
+            this.InOrd.Name = "InOrd";
+            this.InOrd.Size = new System.Drawing.Size(317, 167);
+            this.InOrd.TabIndex = 28;
+            // 
+            // PostOrd
+            // 
+            this.PostOrd.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.PostOrd.Location = new System.Drawing.Point(517, 468);
+            this.PostOrd.Name = "PostOrd";
+            this.PostOrd.Size = new System.Drawing.Size(317, 167);
+            this.PostOrd.TabIndex = 29;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 647);
+            this.ClientSize = new System.Drawing.Size(846, 667);
+            this.Controls.Add(this.PostOrd);
+            this.Controls.Add(this.InOrd);
+            this.Controls.Add(this.PreOrd);
+            this.Controls.Add(this.btnbrack2);
+            this.Controls.Add(this.btnbrack1);
             this.Controls.Add(this.btnroot);
             this.Controls.Add(this.CurOp);
             this.Controls.Add(this.ResultBox);
@@ -461,5 +519,30 @@
         /// 開根號鍵
         /// </summary>
         private System.Windows.Forms.Button btnroot;
+
+        /// <summary>
+        /// 開括號鍵
+        /// </summary>
+        private System.Windows.Forms.Button btnbrack1;
+
+        /// <summary>
+        /// 關括號鍵
+        /// </summary>
+        private System.Windows.Forms.Button btnbrack2;
+
+        /// <summary>
+        /// 前序顯示label
+        /// </summary>
+        private System.Windows.Forms.Label PreOrd;
+
+        /// <summary>
+        /// 中序顯示label
+        /// </summary>
+        private System.Windows.Forms.Label InOrd;
+
+        /// <summary>
+        /// 後序顯示label
+        /// </summary>
+        private System.Windows.Forms.Label PostOrd;
     }
 }

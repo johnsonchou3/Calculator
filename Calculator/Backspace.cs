@@ -10,20 +10,6 @@ namespace Calculator
     public class Backspace : Btns
     {
         /// <summary>
-        /// 需要form1 的TempInputString, StringOfOperation, txtbox 及label作存取
-        /// </summary>
-        private readonly Form1 form1;
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="form1">需要form1 的TempInputString, StringOfOperation, txtbox 及label作存取</param>
-        public Backspace(Form1 form1)
-        {
-            this.form1 = form1;
-        }
-
-        /// <summary>
         /// 按鍵動作
         /// RemoveLastDigit: 移除txtbox最後的digit
         /// ArgumentOutOfRangeException: 當tempinputstring 為null時, 把其設為0
@@ -33,12 +19,10 @@ namespace Calculator
             try
             {
                 RemoveLastDigit();
-                form1.TextBoxStr = form1.TempInputString;
             }
             catch (ArgumentOutOfRangeException)
             {
-                form1.TempInputString = "0";
-                form1.TextBoxStr = form1.TempInputString;
+                TempInputString = "0";
             }
         }
 
@@ -47,8 +31,8 @@ namespace Calculator
         /// </summary>
         private void RemoveLastDigit()
         {
-            string curtextbox = form1.TempInputString;
-            form1.TempInputString = (curtextbox).Remove(curtextbox.Length - 1);
+            string curtextbox = TempInputString;
+            TempInputString = (curtextbox).Remove(Math.Max(1, curtextbox.Length - 1));
         }
     }
 }

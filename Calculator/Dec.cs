@@ -5,17 +5,17 @@ using System.Text;
 namespace Calculator
 {
     /// <summary>
-    /// CE 的按鍵類別, 會被C 繼承, 功能為清空TempInputString
+    /// "."鍵的class, 繼承Btns
     /// </summary>
-    public class ClearEntry : Btns
+    public class Dec : Btns
     {
         /// <summary>
-        /// 按鍵功能
-        /// 把TenpInputString 歸零
+        /// 按鈕功能
+        /// 會在Tempinputstring 加上.數, 不作decimal轉換
         /// </summary>
         public override void BtnFunction()
         {
-            TempInputString = "0";
+            TempInputString += ".";
         }
     }
 }
