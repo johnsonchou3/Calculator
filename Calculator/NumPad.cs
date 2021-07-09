@@ -10,11 +10,6 @@ namespace Calculator
     public class NumPad : Btns
     {
         /// <summary>
-        /// 需要form1 的TempInputString, StringOfOperation, txtbox 及label作存取
-        /// </summary>
-        private readonly Form1 form1;
-
-        /// <summary>
         /// 按鍵本身的值
         /// </summary>
         private string btnnum;
@@ -22,23 +17,21 @@ namespace Calculator
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="form1">需要form1 的TempInputString, StringOfOperation, txtbox 及label作存取</param>
         /// <param name="btnnum">按鍵本身的值</param>
-        public NumPad(Form1 form1, string btnnum)
+        public NumPad(string btnnum)
         {
-            this.form1 = form1;
             this.btnnum = btnnum;
         }
 
         /// <summary>
         /// 按鍵動作
         /// AddNum: 把按鍵值加到TempInputString最後
-        /// 最後把TempInputString 顯示於textbox上
         /// </summary>
         public override void BtnFunction()
         {
+            IsOperating = false;
             this.AddNum();
-            form1.TextBoxStr = form1.TempInputString;
+            StoretoDisplay();
         }
 
         /// <summary>
@@ -48,14 +41,12 @@ namespace Calculator
         {
             try
             {
-                decimal txtboxdec = decimal.Parse(form1.TempInputString);
-                decimal inputdec = decimal.Parse(btnnum);
-                string newtxtboxstr = ((txtboxdec * 10) + inputdec).ToString();
-                form1.TempInputString = newtxtboxstr;
+                TempInputString += btnnum;
+                TempInputString = double.Parse(TempInputString).ToString();
             }
             catch (FormatException)
             {
-                form1.TempInputString = btnnum;
+                TempInputString = btnnum;
             }
         }
     }

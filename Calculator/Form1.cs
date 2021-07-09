@@ -21,38 +21,30 @@ namespace Calculator
         public Form1()
         {
             InitializeComponent();
-            this.btnexe.Tag = new Execute(this);
-            this.btnadd.Tag = new Operation(this, this.btnadd.Text);
-            this.btnsub.Tag = new Operation(this, this.btnsub.Text);
-            this.btnmul.Tag = new Operation(this, this.btnmul.Text);
-            this.btndiv.Tag = new Operation(this, this.btndiv.Text);
-            this.btn0.Tag = new NumPad(this, this.btn0.Text);
-            this.btn1.Tag = new NumPad(this, this.btn1.Text);
-            this.btn2.Tag = new NumPad(this, this.btn2.Text);
-            this.btn3.Tag = new NumPad(this, this.btn3.Text);
-            this.btn4.Tag = new NumPad(this, this.btn4.Text);
-            this.btn5.Tag = new NumPad(this, this.btn5.Text);
-            this.btn6.Tag = new NumPad(this, this.btn6.Text);
-            this.btn7.Tag = new NumPad(this, this.btn7.Text);
-            this.btn8.Tag = new NumPad(this, this.btn8.Text);
-            this.btn9.Tag = new NumPad(this, this.btn9.Text);
-            this.btndec.Tag = new NumPad(this, this.btndec.Text);
-            this.btnce.Tag = new ClearEntry(this);
-            this.btnc.Tag = new ClearAll(this);
-            this.btnback.Tag = new Backspace(this);
-            this.btnPN.Tag = new PosNeg(this);
-            this.btnroot.Tag = new Root(this);
+            this.btnexe.Tag = new Execute();
+            this.btnadd.Tag = new Operation(this.btnadd.Text);
+            this.btnsub.Tag = new Operation(this.btnsub.Text);
+            this.btnmul.Tag = new Operation(this.btnmul.Text);
+            this.btndiv.Tag = new Operation(this.btndiv.Text);
+            this.btn0.Tag = new NumPad(this.btn0.Text);
+            this.btn1.Tag = new NumPad(this.btn1.Text);
+            this.btn2.Tag = new NumPad(this.btn2.Text);
+            this.btn3.Tag = new NumPad(this.btn3.Text);
+            this.btn4.Tag = new NumPad(this.btn4.Text);
+            this.btn5.Tag = new NumPad(this.btn5.Text);
+            this.btn6.Tag = new NumPad(this.btn6.Text);
+            this.btn7.Tag = new NumPad(this.btn7.Text);
+            this.btn8.Tag = new NumPad(this.btn8.Text);
+            this.btn9.Tag = new NumPad(this.btn9.Text);
+            this.btndec.Tag = new Dec();
+            this.btnce.Tag = new ClearEntry();
+            this.btnc.Tag = new ClearAll();
+            this.btnback.Tag = new Backspace();
+            this.btnPN.Tag = new PosNeg();
+            this.btnroot.Tag = new Root();
+            this.btnbrack1.Tag = new BracketOp(this.btnbrack1.Text);
+            this.btnbrack2.Tag = new BracketClose(this.btnbrack2.Text);
         }
-
-        /// <summary>
-        /// 全部運算式, 透過operation 及execute, C, CE 作存取
-        /// </summary>
-        public string StringOfOperation{ get; set; }
-
-        /// <summary>
-        /// 存進目前輸入的數值, 以numpad,execute 作寫入, 並會在operation 後清空
-        /// </summary>
-        public string TempInputString {get; set; } = "0";
 
         /// <summary>
         /// 按鍵的event handler, 會呼叫tag並使用其btnfunction
@@ -66,25 +58,13 @@ namespace Calculator
             {             
                 Btns abc = (Btns)b.Tag;
                 abc.BtnFunction();
-            }             
-        }                 
-                        
-        /// <summary>
-        /// 回傳/修改txtbox 值, 供class 使用
-        /// </summary>
-        public string TextBoxStr
-        {                 
-            get { return ResultBox.Text; }
-            set { ResultBox.Text = value; }
-        }
-
-        /// <summary>
-        /// 回傳/label 值, 供class 使用
-        /// </summary>
-        public string LabelStr
-        {
-            get { return CurOp.Text; }
-            set { CurOp.Text = value; }
-        }
+                ResultBox.Text = Btns.TempInputString;
+                CurOp.Text = Btns.DisplayOperation;
+                PreOrd.Text = Btns.DisplayOperation;
+                PreOrd.Text = Btns.Preordstring;
+                InOrd.Text = Btns.Inordstring;
+                PostOrd.Text = Btns.Postordstring;
+            }
+        }                                    
     }
 }

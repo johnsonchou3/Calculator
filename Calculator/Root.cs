@@ -10,20 +10,6 @@ namespace Calculator
     public class Root : Btns
     {
         /// <summary>
-        /// 需要form1 的TempInputString, StringOfOperation, txtbox 及label作存取
-        /// </summary>
-        private readonly Form1 form1;
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="form1">需要form1 的TempInputString, StringOfOperation, txtbox 及label作存取</param>
-        public Root(Form1 form1)
-        {
-            this.form1 = form1;
-        }
-
-        /// <summary>
         /// 按鍵動作
         /// OperateRoot: 把TempInputString 作開根號並取代原本值
         /// 顯示更新的TempInputString在textbox上
@@ -31,7 +17,6 @@ namespace Calculator
         public override void BtnFunction()
         {
             OperateRoot();
-            form1.TextBoxStr = form1.TempInputString;
         }
 
         /// <summary>
@@ -39,8 +24,8 @@ namespace Calculator
         /// </summary>
         private void OperateRoot()
         {
-            double tempnum = double.Parse(form1.TempInputString);
-            form1.TempInputString = Math.Sqrt(tempnum).ToString();
+            double tempnum = double.Parse(TempInputString);
+            TempInputString = Math.Sqrt(tempnum).ToString();
         }
     }
 }

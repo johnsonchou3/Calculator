@@ -10,28 +10,16 @@ namespace Calculator
     public class ClearAll : ClearEntry
     {
         /// <summary>
-        /// 需要form1 的TempInputString, StringOfOperation, txtbox 及label作存取
-        /// </summary>
-        private readonly Form1 form1;
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="form1">需要form1 的TempInputString, StringOfOperation, txtbox 及label作存取</param>
-        public ClearAll(Form1 form1) : base(form1)
-        {
-            this.form1 = form1;
-        }
-
-        /// <summary>
         /// 按鍵功能
         /// base: 繼承至CE的清空txtbox
         /// ClearDatas: 把stringofoperation 及label清空
+        /// StoretoDisplay: 把新的stringofoperation 更新至畫面
         /// </summary>
         public override void BtnFunction()
         {
             base.BtnFunction();
             ClearDatas();
+            StoretoDisplay();
         }
 
         /// <summary>
@@ -39,8 +27,8 @@ namespace Calculator
         /// </summary>
         private void ClearDatas()
         {
-            form1.StringOfOperation = string.Empty;
-            form1.LabelStr = string.Empty;
+            StringOfOperation = string.Empty;
+            Expressionlist.Clear();
         }
     }
 }
