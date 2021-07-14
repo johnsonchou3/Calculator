@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
+using System.Net;
+using System.IO;    // For StreamReader
+using System.Web;
 
 namespace Calculator
 {
@@ -49,13 +52,18 @@ namespace Calculator
         }
 
         /// <summary>
-        /// 把運算式(string) 作運算並回傳結果(string)
+        /// 把運算式(string) 加到URL POST 給WebAPI 作運算並回傳結果(string)
         /// </summary>
         /// <returns>回傳運算結果(string)</returns>
         private string GetResult()
         {
-            DataTable dt = new DataTable();
-            return dt.Compute(StringOfOperation, "").ToString();
+            string url = "https://localhost:44375/api/Math/Compute?oper=" + WebUtility.UrlEncode(StringOfOperation);
+            var request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "POST";
+            var response = (HttpWebResponse)request.GetResponse();
+            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            responseString = responseString.TrimStart('"').TrimEnd('"');
+            return responseString;
         }
 
         /// <summary>

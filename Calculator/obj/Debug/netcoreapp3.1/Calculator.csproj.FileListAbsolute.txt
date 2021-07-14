@@ -28,3 +28,7 @@ C:\Users\johns\OneDrive\文件\Cmoney\新進\Cal\Calculator\Calculator\obj\Debug
 C:\Users\johns\OneDrive\文件\Cmoney\新進\Cal\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.dll
 C:\Users\johns\OneDrive\文件\Cmoney\新進\Cal\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.pdb
 C:\Users\johns\OneDrive\文件\Cmoney\新進\Cal\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.genruntimeconfig.cache
+C:\Users\johns\OneDrive\文件\Cmoney\新進\Cal\Calculator\Calculator\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+C:\Users\johns\OneDrive\文件\Cmoney\新進\Cal\Calculator\Calculator\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\johns\OneDrive\文件\Cmoney\新進\Cal\Calculator\Calculator\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\johns\OneDrive\文件\Cmoney\新進\Cal\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.csproj.CopyComplete
