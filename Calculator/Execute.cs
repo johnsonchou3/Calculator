@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Net;
-using System.IO;    // For StreamReader
+using System.IO;    
 using System.Web;
+using Newtonsoft.Json;
 
 namespace Calculator
 {
@@ -14,98 +15,28 @@ namespace Calculator
     public class Execute : Btns
     {
         /// <summary>
-        /// 按鍵功能
-        /// if (!IsAfterBracket): 不在")"後的話則需把tempinputstring 存入
-        /// CreateTree: 以expressionlist 創建Tree以作Traverse
-        /// GetXxxOrder: 以Tree 作前、中、後序遍歷並把結果顯示
-        /// SaveValue: 把目前輸入值加進stringofoperation 及expressionlist中
-        /// GetResult: 把運算式(string) 作運算並回傳結果(string)
-        /// Label 顯示運算式, 並把結果存進tempinputstring再清空運算式
+        /// 把response 放到winformcaldata 作展示
         /// </summary>
         public override void BtnFunction()
         {
-            if (!IsAfterBracket)
-            {
-                SaveValue();
-                IsAfterBracket = false;
-            }
-            Node ExpTree = Node.CreateTree(Expressionlist);
-            Preordstring = "Pre-Order: \n";
-            Inordstring = "In-Order: \n";
-            Postordstring = "Post-Order: \n";
-            GetPreorder(ExpTree);
-            GetInorder(ExpTree);
-            GetPostorder(ExpTree);
-            TempInputString = GetResult();
-            DisplayOperation = StringOfOperation;
-            StringOfOperation = string.Empty;
-            Expressionlist.Clear();
+            WinformCaldata = GetResult();
         }
 
         /// <summary>
-        /// 把目前輸入值加進運算式中
-        /// </summary>
-        private void SaveValue()
-        {
-            StringOfOperation += TempInputString;
-            Expressionlist.Add(TempInputString);
-        }
-
-        /// <summary>
-        /// 把運算式(string) 加到URL POST 給WebAPI 作運算並回傳結果(string)
+        /// 向Math controller 提出請求
         /// </summary>
         /// <returns>回傳運算結果(string)</returns>
-        private string GetResult()
+        private CalData GetResult()
         {
-            string url = "https://localhost:44375/api/Math/Compute?oper=" + WebUtility.UrlEncode(StringOfOperation);
+            string url = "https://localhost:44375/api/Math/execute";
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "POST";
+            request.Headers["Cookie"] = CookieID;
             var response = (HttpWebResponse)request.GetResponse();
+            CookieID = response.Headers["set-cookie"];
             var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-            responseString = responseString.TrimStart('"').TrimEnd('"');
-            return responseString;
-        }
-
-        /// <summary>
-        /// 以前序編歷Tree, 並把value 加到Preordstring 以顯示
-        /// </summary>
-        /// <param name="root">需要Tree的root</param>
-        private static void GetPreorder(Node root)
-        {
-            if (root != null)
-            {
-                Preordstring += root.Value + " ";
-                GetPreorder(root.Left);
-                GetPreorder(root.Right);
-            }
-        }
-
-        /// <summary>
-        /// 以中序編歷Tree, 並把value 加到Preordstring 以顯示
-        /// </summary>
-        /// <param name="root">需要Tree的root</param>
-        private static void GetInorder(Node root)
-        {
-            if (root != null)
-            {
-                GetInorder(root.Left);
-                Inordstring += root.Value + " ";
-                GetInorder(root.Right);
-            }
-        }
-
-        /// <summary>
-        /// 以後序編歷Tree, 並把value 加到Preordstring 以顯示
-        /// </summary>
-        /// <param name="root">需要Tree的root </param>
-        private static void GetPostorder(Node root)
-        {
-            if (root != null)
-            {
-                GetPostorder(root.Left);
-                GetPostorder(root.Right);
-                Postordstring += root.Value + " ";
-            }
+            CalData caldata = Newtonsoft.Json.JsonConvert.DeserializeObject<CalData>(responseString);
+            return caldata;
         }
     }
 }

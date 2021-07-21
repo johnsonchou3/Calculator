@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
+using System.Net;
+using System.IO;
+using System.Web;
+using Newtonsoft.Json;
 
 namespace Calculator
 {
@@ -24,53 +29,28 @@ namespace Calculator
         }
 
         /// <summary>
-        /// 按鍵動作
-        /// if (IsOperating): 如果前一個按的也是operation(isoperating), 就只會替換上一個btnop; ELSE 存入Tempinputstring及btnop 
-        /// if (!IsAfterBracket): 如果在")"後面, 只存入btnop, ELSE 存入tempinputstring + btnop
-        /// SaveValue: 把TempInputString及目前的operator寫入StringOfOperation, ExpressionList中
-        /// ClearTemp: 寫入後把TempInputString清空作下一次儲存
-        /// StoretoDisplay: 把新的stringofoperation 更新至畫面
+        /// 把response 放到winformcaldata 作展示
         /// </summary>
         public override void BtnFunction()
         {
-            if (IsOperating)
-            {
-                StringOfOperation = StringOfOperation.Remove(StringOfOperation.Length - 1, 1) + btnop;
-            }
-            else
-            {
-                IsOperating = true;
-                if (IsAfterBracket)
-                {
-                    Expressionlist.Add(btnop);
-                    StringOfOperation += btnop;
-                    IsAfterBracket = false;
-                }
-                else
-                {
-                    SaveValue();
-                    ClearTemp();
-                }
-            }
-            StoretoDisplay();
+            WinformCaldata = SaveValue();
         }
 
         /// <summary>
-        /// 把TempInputString及目前的operator寫入StringOfOperation中
+        /// 向Math controller 提出請求
         /// </summary>
-        private void SaveValue()
+        /// <returns>更新的caldata</returns>
+        private CalData SaveValue()
         {
-            StringOfOperation += double.Parse(TempInputString).ToString() + btnop;
-            Expressionlist.Add(TempInputString);
-            Expressionlist.Add(btnop);
-        }
-
-        /// <summary>
-        /// 寫入後把TempInputString清空作下一次儲存
-        /// </summary>
-        private void ClearTemp()
-        {
-            TempInputString = "0";
+            string url = "https://localhost:44375/api/Math/Operation?btnop=" + System.Web.HttpUtility.UrlEncode(btnop);
+            var request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "POST";
+            request.Headers["Cookie"] = CookieID;
+            var response = (HttpWebResponse)request.GetResponse();
+            CookieID = response.Headers["set-cookie"];
+            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            CalData caldata = Newtonsoft.Json.JsonConvert.DeserializeObject<CalData>(responseString);
+            return caldata;
         }
     }
 }

@@ -58,12 +58,12 @@ namespace Calculator
             {             
                 Btns abc = (Btns)b.Tag;
                 abc.BtnFunction();
-                ResultBox.Text = Btns.TempInputString;
-                CurOp.Text = Btns.DisplayOperation;
-                PreOrd.Text = Btns.DisplayOperation;
-                PreOrd.Text = Btns.Preordstring;
-                InOrd.Text = Btns.Inordstring;
-                PostOrd.Text = Btns.Postordstring;
+                ResultBox.Text = Btns.WinformCaldata.TempInputString;
+                CurOp.Text = Btns.WinformCaldata.DisplayOperation;
+                PreOrd.Text = Btns.WinformCaldata.DisplayOperation;
+                PreOrd.Text = Btns.WinformCaldata.Preordstring;
+                InOrd.Text = Btns.WinformCaldata.Inordstring;
+                PostOrd.Text = Btns.WinformCaldata.Postordstring;
             }
         }                                    
     }

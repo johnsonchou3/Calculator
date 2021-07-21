@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
+using System.Net;
+using System.IO;
+using System.Web;
+using Newtonsoft.Json;
 
 namespace Calculator
 {
@@ -10,22 +15,28 @@ namespace Calculator
     public class Root : Btns
     {
         /// <summary>
-        /// 按鍵動作
-        /// OperateRoot: 把TempInputString 作開根號並取代原本值
-        /// 顯示更新的TempInputString在textbox上
+        /// 把response 放到winformcaldata 作展示
         /// </summary>
         public override void BtnFunction()
         {
-            OperateRoot();
+            WinformCaldata = OperateRoot();
         }
 
         /// <summary>
-        /// 把TempInputString 作開根號並取代原本值
+        /// 向Math controller 提出請求
         /// </summary>
-        private void OperateRoot()
+        /// <returns>更新的caldata</returns>
+        private CalData OperateRoot()
         {
-            double tempnum = double.Parse(TempInputString);
-            TempInputString = Math.Sqrt(tempnum).ToString();
+            string url = "https://localhost:44375/api/Math/Root";
+            var request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "POST";
+            request.Headers["Cookie"] = CookieID;
+            var response = (HttpWebResponse)request.GetResponse();
+            CookieID = response.Headers["set-cookie"];
+            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            CalData caldata = Newtonsoft.Json.JsonConvert.DeserializeObject<CalData>(responseString);
+            return caldata;
         }
     }
 }
