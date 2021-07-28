@@ -47,12 +47,12 @@ namespace Calculator
             this.btnPN.Tag = "PosNeg";
             this.btnroot.Tag = "Root";
             this.btnbrack1.Tag = "BracketOp?bracket=" + System.Web.HttpUtility.UrlEncode(this.btnbrack1.Text);
-            this.btnbrack2.Tag = "BracketOp?bracket=" + System.Web.HttpUtility.UrlEncode(this.btnbrack2.Text);
+            this.btnbrack2.Tag = "BracketClose?bracket=" + System.Web.HttpUtility.UrlEncode(this.btnbrack2.Text);
         }
         /// <summary>
         /// 儲存winform 的CookieID以作辨識
         /// </summary>
-        public static string CookieID { get; set; } = null;
+        public string CookieID { get; set; } = null;
 
         /// <summary>
         /// 整個winform 共用的caldata, 每次按按鍵都會給form1 作展示
@@ -81,7 +81,7 @@ namespace Calculator
         }
         private CalData PostRequest(string btntag)
         {
-            string url = "https://localhost:44375/api/Math/";
+            string url = "https://localhost:44350/Math/";
             url += btntag;
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "POST";
