@@ -41,7 +41,6 @@ C:\Users\user1\Documents\Calculator\Calculator\bin\Debug\netcoreapp3.1\Calculato
 C:\Users\user1\Documents\Calculator\Calculator\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
 C:\Users\user1\Documents\Calculator\Calculator\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\user1\Documents\Calculator\Calculator\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
-C:\Users\user1\Documents\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.csproj.AssemblyReference.cache
 C:\Users\user1\Documents\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.Form1.resources
 C:\Users\user1\Documents\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.csproj.GenerateResource.cache
 C:\Users\user1\Documents\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.AssemblyInfoInputs.cache
@@ -51,3 +50,4 @@ C:\Users\user1\Documents\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculato
 C:\Users\user1\Documents\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.dll
 C:\Users\user1\Documents\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.pdb
 C:\Users\user1\Documents\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.genruntimeconfig.cache
+C:\Users\user1\Documents\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.csproj.AssemblyReference.cache

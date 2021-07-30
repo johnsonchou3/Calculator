@@ -59,6 +59,7 @@
             this.PreOrd = new System.Windows.Forms.Label();
             this.InOrd = new System.Windows.Forms.Label();
             this.PostOrd = new System.Windows.Forms.Label();
+            this.StatusLab = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnPN
@@ -361,11 +362,20 @@
             this.PostOrd.Size = new System.Drawing.Size(317, 167);
             this.PostOrd.TabIndex = 29;
             // 
+            // StatusLab
+            // 
+            this.StatusLab.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.StatusLab.Location = new System.Drawing.Point(12, 641);
+            this.StatusLab.Name = "StatusLab";
+            this.StatusLab.Size = new System.Drawing.Size(526, 20);
+            this.StatusLab.TabIndex = 30;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(846, 667);
+            this.Controls.Add(this.StatusLab);
             this.Controls.Add(this.PostOrd);
             this.Controls.Add(this.InOrd);
             this.Controls.Add(this.PreOrd);
@@ -544,5 +554,6 @@
         /// 後序顯示label
         /// </summary>
         private System.Windows.Forms.Label PostOrd;
+        private System.Windows.Forms.Label StatusLab;
     }
 }

@@ -11,6 +11,7 @@ using System.Net;
 using System.IO;
 using System.Web;
 using Newtonsoft.Json;
+using System.Threading;
 
 namespace Calculator
 {
@@ -52,7 +53,7 @@ namespace Calculator
         /// <summary>
         /// 儲存winform 的CookieID以作辨識
         /// </summary>
-        public string CookieID { get; set; } = null;
+        public string CookieID { get; set; } = "1234";
 
         /// <summary>
         /// 整個winform 共用的caldata, 每次按按鍵都會給form1 作展示
@@ -68,29 +69,74 @@ namespace Calculator
         private void Button_Click(object sender, EventArgs e)
         {                 
             Button btn = (Button)sender;
+            StatusLab.Text = "Processing...";
+            //StatusLab.Text = "Status Code: ";
             if (btn.Name != "label1")
             {
-                WinformCaldata = PostRequest((string)btn.Tag);
-                ResultBox.Text = WinformCaldata.TempInputString;
-                CurOp.Text = WinformCaldata.DisplayOperation;
-                PreOrd.Text = WinformCaldata.DisplayOperation;
-                PreOrd.Text = WinformCaldata.Preordstring;
-                InOrd.Text = WinformCaldata.Inordstring;
-                PostOrd.Text = WinformCaldata.Postordstring;
+                Thread thread = new Thread(SetValue);
+                thread.Start();
+                void SetValue()
+                {
+                    PostRequest((string)btn.Tag);
+                }
             }
+
+
         }
-        private CalData PostRequest(string btntag)
+    
+        private void PostRequest(string btntag)
         {
+
             string url = "https://localhost:44350/Math/";
             url += btntag;
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "POST";
             request.Headers["Cookie"] = CookieID;
-            var response = (HttpWebResponse)request.GetResponse();
-            CookieID = response.Headers["set-cookie"];
-            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-            CalData caldata = Newtonsoft.Json.JsonConvert.DeserializeObject<CalData>(responseString);
-            return caldata;
+
+            try
+            {
+                //成功回傳200
+                var response = (HttpWebResponse)request?.GetResponse();
+                this.Invoke((MethodInvoker)delegate
+                {
+                    StatusLab.Text = "Status Code: " + (int)response.StatusCode;
+                });
+                CookieID = response.Headers["set-cookie"];
+                var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                CalData caldata = Newtonsoft.Json.JsonConvert.DeserializeObject<CalData>(responseString);
+                WinformCaldata = caldata;
+                this.Invoke((MethodInvoker)delegate
+                {
+                    ResultBox.Text = WinformCaldata.TempInputString;
+                    CurOp.Text = WinformCaldata.DisplayOperation;
+                    PreOrd.Text = WinformCaldata.DisplayOperation;
+                    PreOrd.Text = WinformCaldata.Preordstring;
+                    InOrd.Text = WinformCaldata.Inordstring;
+                    PostOrd.Text = WinformCaldata.Postordstring;
+                });
+            }
+            catch (WebException ex)
+            {
+                try
+                {
+                    //有response 但非200
+                    StreamReader sr = new StreamReader(ex.Response?.GetResponseStream());
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        StatusLab.Text = "Status Code: " + (int)((HttpWebResponse)ex.Response).StatusCode + "-" + sr.ReadToEnd();
+                    });
+
+                }
+                catch (ArgumentNullException)
+                {
+                    //沒有response
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        StatusLab.Text = "WebAPI is not available currently.";
+                    });
+                }
+            }
+
         }
     }
 }
