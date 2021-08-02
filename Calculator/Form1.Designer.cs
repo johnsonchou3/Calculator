@@ -553,6 +553,10 @@
         /// 後序顯示label
         /// </summary>
         private System.Windows.Forms.Label PostOrd;
+
+        /// <summary>
+        /// 顯示Status code 的label
+        /// </summary>
         private System.Windows.Forms.Label StatusLab;
     }
 }

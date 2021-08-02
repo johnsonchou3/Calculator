@@ -50,6 +50,7 @@ namespace Calculator
             this.btnbrack1.Tag = "BracketOp?bracket=" + System.Web.HttpUtility.UrlEncode(this.btnbrack1.Text);
             this.btnbrack2.Tag = "BracketClose?bracket=" + System.Web.HttpUtility.UrlEncode(this.btnbrack2.Text);
         }
+
         /// <summary>
         /// 儲存winform 的CookieID以作辨識
         /// </summary>
@@ -59,7 +60,6 @@ namespace Calculator
         /// 整個winform 共用的caldata, 每次按按鍵都會給form1 作展示
         /// </summary>
         public static CalData WinformCaldata { get; set; }
-
 
         /// <summary>
         /// 按鍵的event handler, 會呼叫tag並使用其btnfunction
@@ -79,13 +79,14 @@ namespace Calculator
                     PostRequest((string)btn.Tag);
                 }
             }
-
-
         }
     
+        /// <summary>
+        /// 送出post 請求的function
+        /// </summary>
+        /// <param name="btntag">需傳入btntag到url</param>
         private void PostRequest(string btntag)
         {
-
             string url = "https://localhost:44350/Math/";
             url += btntag;
             var request = (HttpWebRequest)WebRequest.Create(url);
@@ -124,7 +125,6 @@ namespace Calculator
                     {
                         StatusLab.Text = "Status Code: " + (int)((HttpWebResponse)ex.Response).StatusCode + "-" + sr.ReadToEnd();
                     });
-
                 }
                 catch (ArgumentNullException)
                 {
@@ -135,7 +135,6 @@ namespace Calculator
                     });
                 }
             }
-
         }
     }
 }
