@@ -364,10 +364,9 @@
             // 
             // StatusLab
             // 
-            this.StatusLab.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.StatusLab.Location = new System.Drawing.Point(12, 641);
+            this.StatusLab.Location = new System.Drawing.Point(12, 635);
             this.StatusLab.Name = "StatusLab";
-            this.StatusLab.Size = new System.Drawing.Size(526, 20);
+            this.StatusLab.Size = new System.Drawing.Size(509, 23);
             this.StatusLab.TabIndex = 30;
             // 
             // Form1

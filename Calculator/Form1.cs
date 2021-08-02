@@ -70,7 +70,6 @@ namespace Calculator
         {                 
             Button btn = (Button)sender;
             StatusLab.Text = "Processing...";
-            //StatusLab.Text = "Status Code: ";
             if (btn.Name != "label1")
             {
                 Thread thread = new Thread(SetValue);
