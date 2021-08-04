@@ -10,16 +10,6 @@ namespace Calculator
     public class CalData
     {
         /// <summary>
-        /// 判斷目前是否在AfterBracket, 以免operation或execute 出現格式錯誤
-        /// </summary>
-        public bool IsAfterBracket { get; set; } = false;
-
-        /// <summary>
-        /// 判斷目前是否在operation, 在operation當中再按operation 會修改operator
-        /// </summary>
-        public bool IsOperating { get; set; } = false;
-
-        /// <summary>
         /// 目前的運算式, 每按operation/bracket/execute 都會使其更新, 在execute/ClearAll後會清空
         /// </summary>
         public string StringOfOperation { get; set; }
@@ -48,11 +38,6 @@ namespace Calculator
         /// 目前輸入的String, 會顯示在form1textbox 讓用家知道目前輸入
         /// </summary>
         public string TempInputString { get; set; } = "0";
-
-        /// <summary>
-        /// 存入每個operand 及operator 的List, 以便在execute 創建tree
-        /// </summary>
-        public List<string> Expressionlist { get; set; } = new List<string>();
 
         /// <summary>
         /// 內建的儲存displayoperation method 方便使用

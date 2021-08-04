@@ -51,3 +51,4 @@ C:\Users\user1\Documents\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculato
 C:\Users\user1\Documents\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.pdb
 C:\Users\user1\Documents\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.genruntimeconfig.cache
 C:\Users\user1\Documents\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.csproj.AssemblyReference.cache
+C:\Users\user1\Documents\Calculator\Calculator\bin\Debug\netcoreapp3.1\Calculator.dll.config

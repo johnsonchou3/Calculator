@@ -12,6 +12,7 @@ using System.IO;
 using System.Web;
 using Newtonsoft.Json;
 using System.Threading;
+using System.Configuration;
 
 namespace Calculator
 {
@@ -60,7 +61,6 @@ namespace Calculator
         /// 整個winform 共用的caldata, 每次按按鍵都會給form1 作展示
         /// </summary>
         public static CalData WinformCaldata { get; set; }
-
         /// <summary>
         /// 按鍵的event handler, 會呼叫tag並使用其btnfunction
         /// </summary>
@@ -87,7 +87,7 @@ namespace Calculator
         /// <param name="btntag">需傳入btntag到url</param>
         private void PostRequest(string btntag)
         {
-            string url = "https://localhost:44350/Math/";
+            string url  = ConfigurationManager.AppSettings["url"];
             url += btntag;
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "POST";
@@ -103,7 +103,7 @@ namespace Calculator
                 });
                 CookieID = response.Headers["set-cookie"];
                 var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-                CalData caldata = Newtonsoft.Json.JsonConvert.DeserializeObject<CalData>(responseString);
+                CalData caldata = JsonConvert.DeserializeObject<CalData>(responseString);
                 WinformCaldata = caldata;
                 this.Invoke((MethodInvoker)delegate
                 {
