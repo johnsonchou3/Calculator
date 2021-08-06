@@ -60,6 +60,7 @@
             this.InOrd = new System.Windows.Forms.Label();
             this.PostOrd = new System.Windows.Forms.Label();
             this.StatusLab = new System.Windows.Forms.Label();
+            this.btninv = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnPN
@@ -369,11 +370,23 @@
             this.StatusLab.Size = new System.Drawing.Size(509, 23);
             this.StatusLab.TabIndex = 30;
             // 
+            // btninv
+            // 
+            this.btninv.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btninv.Location = new System.Drawing.Point(278, 179);
+            this.btninv.Name = "btninv";
+            this.btninv.Size = new System.Drawing.Size(107, 71);
+            this.btninv.TabIndex = 31;
+            this.btninv.Text = "Inv";
+            this.btninv.UseVisualStyleBackColor = true;
+            this.btninv.Click += new System.EventHandler(this.Button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(846, 667);
+            this.Controls.Add(this.btninv);
             this.Controls.Add(this.StatusLab);
             this.Controls.Add(this.PostOrd);
             this.Controls.Add(this.InOrd);
@@ -558,5 +571,10 @@
         /// 顯示Status code 的label
         /// </summary>
         private System.Windows.Forms.Label StatusLab;
+
+        /// <summary>
+        /// 倒數的按鈕
+        /// </summary>
+        private System.Windows.Forms.Button btninv;
     }
 }
