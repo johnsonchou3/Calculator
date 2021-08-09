@@ -21,28 +21,28 @@ namespace Calculator
         {
             InitializeComponent();
             this.btnexe.Tag = "?method=Execute";
-            this.btnadd.Tag = "?method=Operation&btn=" + System.Web.HttpUtility.UrlEncode(this.btnadd.Text);
-            this.btnsub.Tag = "?method=Operation&btn=" + System.Web.HttpUtility.UrlEncode(this.btnsub.Text);
-            this.btnmul.Tag = "?method=Operation&btn=" + System.Web.HttpUtility.UrlEncode(this.btnmul.Text);
-            this.btndiv.Tag = "?method=Operation?btn=" + System.Web.HttpUtility.UrlEncode(this.btndiv.Text);
-            this.btn0.Tag = "?method=NumPad&btn=" + this.btn0.Text;
-            this.btn2.Tag = "?method=NumPad&btn=" + this.btn2.Text;
-            this.btn1.Tag = "?method=NumPad&btn=" + this.btn1.Text;
-            this.btn3.Tag = "?method=NumPad&btn=" + this.btn3.Text;
-            this.btn4.Tag = "?method=NumPad&btn=" + this.btn4.Text;
-            this.btn5.Tag = "?method=NumPad&btn=" + this.btn5.Text;
-            this.btn6.Tag = "?method=NumPad&btn=" + this.btn6.Text;
-            this.btn7.Tag = "?method=NumPad&btn=" + this.btn7.Text;
-            this.btn8.Tag = "?method=NumPad&btn=" + this.btn8.Text;
-            this.btn9.Tag = "?method=NumPad&btn=" + this.btn9.Text;
-            this.btndec.Tag = "?method=Dec";
+            this.btnadd.Tag = "?method=AddSubtract&button=" + System.Web.HttpUtility.UrlEncode(this.btnadd.Text);
+            this.btnsub.Tag = "?method=AddSubtract&button=" + System.Web.HttpUtility.UrlEncode(this.btnsub.Text);
+            this.btnmul.Tag = "?method=MultiplyDivision&button=" + System.Web.HttpUtility.UrlEncode(this.btnmul.Text);
+            this.btndiv.Tag = "?method=MultiplyDivision&button=" + System.Web.HttpUtility.UrlEncode(this.btndiv.Text);
+            this.btn0.Tag = "?method=NumPad&button=" + this.btn0.Text;
+            this.btn2.Tag = "?method=NumPad&button=" + this.btn2.Text;
+            this.btn1.Tag = "?method=NumPad&button=" + this.btn1.Text;
+            this.btn3.Tag = "?method=NumPad&button=" + this.btn3.Text;
+            this.btn4.Tag = "?method=NumPad&button=" + this.btn4.Text;
+            this.btn5.Tag = "?method=NumPad&button=" + this.btn5.Text;
+            this.btn6.Tag = "?method=NumPad&button=" + this.btn6.Text;
+            this.btn7.Tag = "?method=NumPad&button=" + this.btn7.Text;
+            this.btn8.Tag = "?method=NumPad&button=" + this.btn8.Text;
+            this.btn9.Tag = "?method=NumPad&button=" + this.btn9.Text;
+            this.btndec.Tag = "?method=AddDecimal";
             this.btnce.Tag = "?method=ClearEntry";
             this.btnc.Tag = "?method=ClearAll";
             this.btnback.Tag = "?method=Backspace";
-            this.btnPN.Tag = "?method=PosNeg";
+            this.btnPN.Tag = "?method=PositiveNegative";
             this.btnroot.Tag = "?method=Root";
-            this.btnbrack1.Tag = "?method=BracketOp&btn=" + HttpUtility.UrlEncode(this.btnbrack1.Text);
-            this.btnbrack2.Tag = "?method=BracketClose&btn=" + HttpUtility.UrlEncode(this.btnbrack2.Text);
+            this.btnbrack1.Tag = "?method=BracketOpen&button=" + HttpUtility.UrlEncode(this.btnbrack1.Text);
+            this.btnbrack2.Tag = "?method=BracketClose&button=" + HttpUtility.UrlEncode(this.btnbrack2.Text);
             this.btninv.Tag = "?method=Invert";
         }
 
