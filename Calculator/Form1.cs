@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System.Threading;
 using System.Configuration;
 using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace Calculator
 {
@@ -108,6 +109,9 @@ namespace Calculator
         /// <param name="btntag">需傳入btntag到url</param>
         private async Task<CalData> PostRequestAsync(string btntag)
         {
+            HttpClient httpClient = default;
+            HttpResponseMessage httpResponseMessage = default;
+            
             string tempurl = url + btntag;
             var request = (HttpWebRequest)WebRequest.Create(tempurl);
             request.Method = "POST";
@@ -115,6 +119,7 @@ namespace Calculator
             HttpWebResponse response = (HttpWebResponse)await request.GetResponseAsync();
             CookieID = response.Headers["set-cookie"];
             StatusLabel.Text = "Status Code: " + (int)response.StatusCode;
+            
             var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
             CalData caldata = JsonConvert.DeserializeObject<CalData>(responseString);
             return caldata;

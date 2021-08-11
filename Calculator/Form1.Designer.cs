@@ -63,209 +63,209 @@
             this.buttonInvert = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnPN
+            // buttonPositiveNegative
             // 
             this.buttonPositiveNegative.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonPositiveNegative.Location = new System.Drawing.Point(52, 564);
-            this.buttonPositiveNegative.Name = "btnPN";
+            this.buttonPositiveNegative.Name = "buttonPositiveNegative";
             this.buttonPositiveNegative.Size = new System.Drawing.Size(107, 71);
             this.buttonPositiveNegative.TabIndex = 1;
             this.buttonPositiveNegative.Text = "+/-";
             this.buttonPositiveNegative.UseVisualStyleBackColor = true;
             this.buttonPositiveNegative.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btnexe
+            // buttonExecute
             // 
             this.buttonExecute.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonExecute.Location = new System.Drawing.Point(389, 564);
-            this.buttonExecute.Name = "btnexe";
+            this.buttonExecute.Name = "buttonExecute";
             this.buttonExecute.Size = new System.Drawing.Size(107, 71);
             this.buttonExecute.TabIndex = 2;
             this.buttonExecute.Text = "=";
             this.buttonExecute.UseVisualStyleBackColor = true;
             this.buttonExecute.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btnadd
+            // buttonAdd
             // 
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonAdd.Location = new System.Drawing.Point(389, 487);
-            this.buttonAdd.Name = "btnadd";
+            this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(107, 71);
             this.buttonAdd.TabIndex = 3;
             this.buttonAdd.Text = "+";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btnsub
+            // buttonSubtract
             // 
             this.buttonSubtract.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonSubtract.Location = new System.Drawing.Point(389, 410);
-            this.buttonSubtract.Name = "btnsub";
+            this.buttonSubtract.Name = "buttonSubtract";
             this.buttonSubtract.Size = new System.Drawing.Size(107, 71);
             this.buttonSubtract.TabIndex = 4;
             this.buttonSubtract.Text = "-";
             this.buttonSubtract.UseVisualStyleBackColor = true;
             this.buttonSubtract.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btnmul
+            // buttonMultiply
             // 
             this.buttonMultiply.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonMultiply.Location = new System.Drawing.Point(389, 333);
-            this.buttonMultiply.Name = "btnmul";
+            this.buttonMultiply.Name = "buttonMultiply";
             this.buttonMultiply.Size = new System.Drawing.Size(107, 71);
             this.buttonMultiply.TabIndex = 5;
             this.buttonMultiply.Text = "*";
             this.buttonMultiply.UseVisualStyleBackColor = true;
             this.buttonMultiply.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btndiv
+            // buttonDivision
             // 
             this.buttonDivision.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonDivision.Location = new System.Drawing.Point(389, 256);
-            this.buttonDivision.Name = "btndiv";
+            this.buttonDivision.Name = "buttonDivision";
             this.buttonDivision.Size = new System.Drawing.Size(107, 71);
             this.buttonDivision.TabIndex = 6;
             this.buttonDivision.Text = "/";
             this.buttonDivision.UseVisualStyleBackColor = true;
             this.buttonDivision.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btnback
+            // buttonBack
             // 
             this.buttonBack.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonBack.Location = new System.Drawing.Point(389, 179);
-            this.buttonBack.Name = "btnback";
+            this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(107, 71);
             this.buttonBack.TabIndex = 7;
             this.buttonBack.Text = "back";
             this.buttonBack.UseVisualStyleBackColor = true;
             this.buttonBack.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btn0
+            // button0
             // 
             this.button0.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button0.Location = new System.Drawing.Point(165, 564);
-            this.button0.Name = "btn0";
+            this.button0.Name = "button0";
             this.button0.Size = new System.Drawing.Size(107, 71);
             this.button0.TabIndex = 8;
             this.button0.Text = "0";
             this.button0.UseVisualStyleBackColor = true;
             this.button0.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btndec
+            // buttonDecimal
             // 
             this.buttonDecimal.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonDecimal.Location = new System.Drawing.Point(276, 564);
-            this.buttonDecimal.Name = "btndec";
+            this.buttonDecimal.Name = "buttonDecimal";
             this.buttonDecimal.Size = new System.Drawing.Size(107, 71);
             this.buttonDecimal.TabIndex = 9;
             this.buttonDecimal.Text = ".";
             this.buttonDecimal.UseVisualStyleBackColor = true;
             this.buttonDecimal.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btn2
+            // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.Location = new System.Drawing.Point(165, 487);
-            this.button2.Name = "btn2";
+            this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(107, 71);
             this.button2.TabIndex = 10;
             this.button2.Text = "2";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btn3
+            // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button3.Location = new System.Drawing.Point(276, 487);
-            this.button3.Name = "btn3";
+            this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(107, 71);
             this.button3.TabIndex = 11;
             this.button3.Text = "3";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btn1
+            // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.Location = new System.Drawing.Point(52, 487);
-            this.button1.Name = "btn1";
+            this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 71);
             this.button1.TabIndex = 12;
             this.button1.Text = "1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btn5
+            // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button5.Location = new System.Drawing.Point(165, 410);
-            this.button5.Name = "btn5";
+            this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(107, 71);
             this.button5.TabIndex = 13;
             this.button5.Text = "5";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btn4
+            // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button4.Location = new System.Drawing.Point(52, 410);
-            this.button4.Name = "btn4";
+            this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(107, 71);
             this.button4.TabIndex = 14;
             this.button4.Text = "4";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btn6
+            // button6
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button6.Location = new System.Drawing.Point(276, 410);
-            this.button6.Name = "btn6";
+            this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(107, 71);
             this.button6.TabIndex = 15;
             this.button6.Text = "6";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btn8
+            // button8
             // 
             this.button8.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button8.Location = new System.Drawing.Point(165, 333);
-            this.button8.Name = "btn8";
+            this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(107, 71);
             this.button8.TabIndex = 16;
             this.button8.Text = "8";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btn7
+            // button7
             // 
             this.button7.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button7.Location = new System.Drawing.Point(52, 333);
-            this.button7.Name = "btn7";
+            this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(107, 71);
             this.button7.TabIndex = 17;
             this.button7.Text = "7";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btn9
+            // button9
             // 
             this.button9.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button9.Location = new System.Drawing.Point(276, 333);
-            this.button9.Name = "btn9";
+            this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(107, 71);
             this.button9.TabIndex = 18;
             this.button9.Text = "9";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btnc
+            // buttonC
             // 
             this.buttonC.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonC.Location = new System.Drawing.Point(276, 256);
-            this.buttonC.Name = "btnc";
+            this.buttonC.Name = "buttonC";
             this.buttonC.Size = new System.Drawing.Size(107, 71);
             this.buttonC.TabIndex = 19;
             this.buttonC.Tag = "0";
@@ -273,11 +273,11 @@
             this.buttonC.UseVisualStyleBackColor = true;
             this.buttonC.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btnce
+            // buttonCE
             // 
             this.buttonCE.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonCE.Location = new System.Drawing.Point(165, 256);
-            this.buttonCE.Name = "btnce";
+            this.buttonCE.Name = "buttonCE";
             this.buttonCE.Size = new System.Drawing.Size(107, 71);
             this.buttonCE.TabIndex = 20;
             this.buttonCE.Text = "CE";
@@ -295,31 +295,31 @@
             this.ResultBox.Text = "0";
             this.ResultBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // CurOp
+            // CurrentOperation
             // 
             this.CurrentOperation.AutoSize = true;
             this.CurrentOperation.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CurrentOperation.Location = new System.Drawing.Point(34, 27);
-            this.CurrentOperation.Name = "CurOp";
+            this.CurrentOperation.Name = "CurrentOperation";
             this.CurrentOperation.Size = new System.Drawing.Size(0, 41);
             this.CurrentOperation.TabIndex = 22;
             // 
-            // btnroot
+            // buttonRoot
             // 
             this.buttonRoot.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonRoot.Location = new System.Drawing.Point(52, 256);
-            this.buttonRoot.Name = "btnroot";
+            this.buttonRoot.Name = "buttonRoot";
             this.buttonRoot.Size = new System.Drawing.Size(107, 71);
             this.buttonRoot.TabIndex = 24;
             this.buttonRoot.Text = "√";
             this.buttonRoot.UseVisualStyleBackColor = true;
             this.buttonRoot.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btnbrack1
+            // buttonBracketOpen
             // 
             this.buttonBracketOpen.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonBracketOpen.Location = new System.Drawing.Point(52, 179);
-            this.buttonBracketOpen.Name = "btnbrack1";
+            this.buttonBracketOpen.Name = "buttonBracketOpen";
             this.buttonBracketOpen.Size = new System.Drawing.Size(107, 71);
             this.buttonBracketOpen.TabIndex = 25;
             this.buttonBracketOpen.Tag = "0";
@@ -327,11 +327,11 @@
             this.buttonBracketOpen.UseVisualStyleBackColor = true;
             this.buttonBracketOpen.Click += new System.EventHandler(this.Button_Click);
             // 
-            // btnbrack2
+            // buttonBracketClose
             // 
             this.buttonBracketClose.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonBracketClose.Location = new System.Drawing.Point(165, 179);
-            this.buttonBracketClose.Name = "btnbrack2";
+            this.buttonBracketClose.Name = "buttonBracketClose";
             this.buttonBracketClose.Size = new System.Drawing.Size(107, 71);
             this.buttonBracketClose.TabIndex = 26;
             this.buttonBracketClose.Tag = "0";
@@ -339,42 +339,42 @@
             this.buttonBracketClose.UseVisualStyleBackColor = true;
             this.buttonBracketClose.Click += new System.EventHandler(this.Button_Click);
             // 
-            // PreOrd
+            // PreOrderLabel
             // 
             this.PreOrderLabel.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.PreOrderLabel.Location = new System.Drawing.Point(517, 46);
-            this.PreOrderLabel.Name = "PreOrd";
+            this.PreOrderLabel.Name = "PreOrderLabel";
             this.PreOrderLabel.Size = new System.Drawing.Size(317, 167);
             this.PreOrderLabel.TabIndex = 27;
             // 
-            // InOrd
+            // InOrderLabel
             // 
             this.InOrderLabel.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.InOrderLabel.Location = new System.Drawing.Point(517, 246);
-            this.InOrderLabel.Name = "InOrd";
+            this.InOrderLabel.Name = "InOrderLabel";
             this.InOrderLabel.Size = new System.Drawing.Size(317, 167);
             this.InOrderLabel.TabIndex = 28;
             // 
-            // PostOrd
+            // PostOrderLabel
             // 
             this.PostOrderLabel.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.PostOrderLabel.Location = new System.Drawing.Point(517, 468);
-            this.PostOrderLabel.Name = "PostOrd";
+            this.PostOrderLabel.Name = "PostOrderLabel";
             this.PostOrderLabel.Size = new System.Drawing.Size(317, 167);
             this.PostOrderLabel.TabIndex = 29;
             // 
-            // StatusLab
+            // StatusLabel
             // 
             this.StatusLabel.Location = new System.Drawing.Point(12, 635);
-            this.StatusLabel.Name = "StatusLab";
+            this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(509, 23);
             this.StatusLabel.TabIndex = 30;
             // 
-            // btninv
+            // buttonInvert
             // 
             this.buttonInvert.Font = new System.Drawing.Font("Microsoft JhengHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonInvert.Location = new System.Drawing.Point(278, 179);
-            this.buttonInvert.Name = "btninv";
+            this.buttonInvert.Name = "buttonInvert";
             this.buttonInvert.Size = new System.Drawing.Size(107, 71);
             this.buttonInvert.TabIndex = 31;
             this.buttonInvert.Text = "Inv";
